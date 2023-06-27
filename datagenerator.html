@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Generator</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js" integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.9.6/jstat.min.js" integrity="sha512-UK8MjH09aePxFAd8OwI5P4oP462OBBNGVh3OtnuHjybd0T3ArUbAseIuHpS1XfinmMXcCZG5barC+7SNPjuQtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+    <script src="chart.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Carter+One&family=Edu+NSW+ACT+Foundation:wght@400;500&family=Edu+VIC+WA+NT+Beginner&family=Kanit:wght@100&family=Lobster&family=Mochiy+Pop+One&family=Nova+Round&family=Permanent+Marker&family=Rampart+One&family=Roboto+Mono:wght@200&family=Teko:wght@500&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+    
+        <nav>
+          <ul>
+            <li><a href="./HomePage.html"><b>Home</b></a></li>
+            <li><a href="./About_Us.html"><b>About Us</b></a></li>
+            <li><a href="./Our_Services.html"><b>Our Services</b></a></li>
+            <li><a href="./datagenerator.html"><b>Data Generator</b></a></li>
+          </ul>
+        </nav>
+    </header>
+  
+    <div class="container">
+        <img class="image" src="https://i.pinimg.com/736x/61/00/8f/61008fd0e083f53885a86003d9f01642.jpg" alt="Image" >
+      </div>
+      
+      <h1 style="margin-left:100px">SuperMarket Multi Server Model</h1>
+    
+      <h2 style="margin-left:600px; margin-top:-20px">Simulation Parameters</h2>
+      <div>
+        <label for="num-customers">Number of Customers:</label>
+        <input type="number" id="num-customers" min="1" value=" " placeholder="Enter no. of Customers">
+      </div>
+      <div>
+        <label for="time">Type Of server:</label>
+        <input type="text" id="simulationTime" value="M/G/C">
+        </div>
+      <div>
+        <label for="shape">Shape (Gamma Distribution):</label>
+        <input type="number" id="shape" min="0.1" step="0.1" value=" " placeholder="Enter shape (Gamma Distribution)">
+      </div>
+      <div>
+        <label for="scale">Scale (Gamma Distribution):</label>
+        <input type="number" id="scale" min="0.1" step="0.1" value=" "  placeholder="Enter scale (Gamma Distribution)">
+      </div>
+      <div>
+        <label for="lambda">Lambda (Poisson Distribution):</label>
+        <input type="number" id="lambda" min="0.1" step="0.1" value=" "  placeholder="Enter Lambda (Poisson Distribution)">
+      </div>
+      <div>
+        <label for="num-servers">Number of Servers:</label>
+        <input type="number" id="num-servers" min="1" value="5">
+      </div>
+      <button onclick="generateData()">Generate Data</button>
+    
+       <h2 style="margin-left: 640px;">Simulated Data</h2> 
+      <div id="data-container"></div>
+     
+      
+    
+      <h2 style="margin-left: 640px;">Server Metrics</h2>
+      <div id="metrics-container"></div>
+        <div>
+            <h2 style="margin-left: 680px;">Plots</h2>
+            <button onclick="generateIACharts()">Generate Inter-Arrival Charts</button><br>
+            <button onclick="generateSTCharts()">Generate Service Time Charts</button><br>
+            <button onclick="generatePCharts()">Generate Probability of n Customer Charts</button><br>
+            <button onclick="generateUCharts()">Generate Utilization Charts</button><br>
+            <button onclick="generateSUCharts()">Generate Server Utilization Charts</button><br>
+        </div>
+      <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+        <canvas id="inter-arrival-chart" width="200" height="100"></canvas>
+      </div>
+      <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+        <canvas id="service-time-chart" width="200" height="100"></canvas>
+      </div>
+      <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+        <canvas id="probability-chart" width="200" height="100"></canvas>
+      </div>
+      <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+        <canvas id="utilization-chart" width="200" height="100"></canvas>
+      </div>
+      <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+        <canvas id="server-utilization-chart" width="200" height="100"></canvas>
+      </div>
+    
+
+    
+</body>
+</html>
